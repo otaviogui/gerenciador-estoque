@@ -1,0 +1,184 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  top: 0;
+  bottom: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; }
+
+a {
+  text-decoration: none;
+  cursor: pointer; }
+
+.o-container {
+  display: grid;
+  grid-template-areas: "aside header header header header header header header header header header header" "aside main main main main main main main main main main main" "aside footer footer footer footer footer footer footer footer footer footer footer";
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 10vh 80vh 10vh; }
+
+/*inicio header*/
+.o-header {
+  grid-area: header;
+  background-color: #8DB2D9;
+  display: grid;
+  padding: 25px;
+  grid-template-areas: "logo logo logo logo logo logo logo logo  logo logout"; }
+  .o-header .o-header-logo {
+    grid-area: logo;
+    color: #E4EBF0;
+    font-weight: 700; }
+    .o-header .o-header-logo a {
+      color: #E4EBF0; }
+  .o-header .o-header-logout {
+    grid-area: logout; }
+    .o-header .o-header-logout a {
+      color: #283D52; }
+
+/*final header*/
+/*menu estilo*/
+.o-aside {
+  grid-area: aside;
+  background-color: #283D52; }
+  .o-aside nav {
+    padding-top: 25vh;
+    padding-left: 20px; }
+    .o-aside nav ul li {
+      list-style: none;
+      margin-top: 5px; }
+      .o-aside nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.1em;
+        font-weight: 100;
+        letter-spacing: 2px; }
+  .o-aside .sub {
+    padding: 10px;
+    font-size: 0.8em; }
+
+/*final do menu */
+/*come├ºo do main*/
+.o-main {
+  grid-area: main;
+  background-color: #E4EBF0;
+  padding: 50px;
+  /*.o-main-content{
+      display: grid;
+      
+     grid-template-columns: auto auto auto;
+     grid-template-rows: auto auto auto;
+    
+  }*/
+  /*MODAL: ;*/
+  /* Modal Content/Box */
+  /* The Close Button */
+  /*formulario */ }
+  .o-main .o-main-title {
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 50px; }
+  .o-main .o-bottom-action {
+    background-color: #8DB2D9;
+    width: 10vw;
+    height: 5vh;
+    border-radius: 5px;
+    margin-bottom: 5vh;
+    color: white; }
+    .o-main .o-bottom-action i {
+      color: white; }
+  .o-main .o-table-clear {
+    grid-area: table;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 5px; }
+    .o-main .o-table-clear tbody tr td {
+      color: #283D52;
+      padding: 5px;
+      text-align: center; }
+  .o-main .modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: black;
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */ }
+  .o-main .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    /* 15% from the top and centered */
+    padding: 50px;
+    border: 1px solid #888;
+    width: 50vw;
+    /* Could be more or less, depending on screen size */ }
+  .o-main .close {
+    padding-right: 300px;
+    padding-top: 150px;
+    color: #283D52;
+    float: right;
+    font-size: 28px;
+    font-weight: bold; }
+  .o-main .close:hover,
+  .o-main .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer; }
+  .o-main .o-form-send {
+    border: 1px solid #8DB1D0;
+    width: 50vw;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; }
+    .o-main .o-form-send .o-group-input {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding-left: 10px; }
+      .o-main .o-form-send .o-group-input label {
+        font-weight: 300;
+        letter-spacing: 2px; }
+      .o-main .o-form-send .o-group-input input {
+        border: 1px #8DB1D0 solid;
+        height: 4vh;
+        width: 15vw;
+        border-radius: 5px;
+        margin-top: 5px; }
+      .o-main .o-form-send .o-group-input .o-group-input:nth-child(15) {
+        grid-row: 1 / 3; }
+      .o-main .o-form-send .o-group-input .o-select {
+        border: 1px #8DB1D0 solid;
+        height: 4vh;
+        width: 15vw;
+        border-radius: 5px;
+        margin-top: 5px; }
+  .o-main .o-btn {
+    display: grid;
+    grid-template-columns: 2fr; }
+    .o-main .o-btn .o-btn-1 {
+      background-color: #8DB1D0;
+      grid-column: 1 / span 8; }
+    .o-main .o-btn .o-btn-2 {
+      background-color: #283D52; }
+
+/*Final do main*/
+/*come├ºo da footer*/
+.o-footer {
+  grid-area: footer;
+  background-color: #8DB1D0;
+  text-align: center;
+  padding: 25px; }
+  .o-footer a {
+    color: #E4EBF0; }
+
+/*# sourceMappingURL=estilosass.css.map */
