@@ -32,6 +32,6 @@ SASS | Sass é uma extensão de CSS Front-end
 
 # Contribuidor
 
-Desenvolvedor | Thumbnail
+Desenvolvedor
 --------- | ------:
-[Otávio](https://github.com/otaviogui) | <img src="https://avatars3.githubusercontent.com/u/20995835?s=460&v=4" width="100"/>
+[Otávio](https://github.com/otaviogui)
