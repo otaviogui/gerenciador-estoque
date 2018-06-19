@@ -3,6 +3,9 @@
 <head>
     <title>#{title}#</title>
     <meta charset="utf-8"/>
+    <meta name="description" content="Tela de sismtema de gerenciamento de estoque, tela de cadastro para pessoas fisícas">
+    <meta name="keywords" content="Sistema de Controle,Gerenciamento de estoque,Controle de venda,Controle de estoque,Pessoa Fisíca,Cadastro de pessoa fisica">
+    <meta name="author" content="Otávio Guilherme - EASY Comunication Digital">
     <link rel="stylesheet" href="../app/client/styles/estilosass.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -10,31 +13,31 @@
 <body>
     <div class="o-container">
         <header class="o-header">
-            <section class="o-header-logo"> <a href="index.html">Sistema de Controle</a></section>
-             <section class="o-header-logout"><a href="sair" ><i class="fas fa-door-closed"></i> Sair</a></section>         
+            <section class="o-header-logo"> <a href="index.html" alt="Nome da Empresa Contratada">Sistema de Controle</a></section>
+            <section class="o-header-logout"><a href="sair" alt="Botão para sair do Sistema" ><i class="fas fa-door-closed"></i> Sair</a></section>         
         </header>
         <aside class="o-aside">
-            <nav>
+            <nav alt="menu com todas as funcionalidades">
                 <ul>
-                    <li><a href="../">inicio</a></li>
-                    <li><a href="">Cliente</a>
+                    <li><a href="../" alt="Tela inicial : Início">inicio</a></li>
+                    <li><a href="" alt="Opções de tipos de cliente">Cliente</a>
                         <ul class="sub">
-                            <li ><a href="fisica">Pessoa Fisica</a></li>
-                            <li ><a href="juridica">Pessoa Juridica</a></li>
+                            <li ><a href="fisica" alt="Tela de Pessoa fisíca">Pessoa Fisica</a></li>
+                            <li ><a href="juridica" alt="Tela de Pessoa Jurídica">Pessoa Juridica</a></li>
                         </ul>
                     </li>
-                    <li><a href="produto">Produto</a></li>
-                    <li><a href="venda">Venda</a></li>
-                    <li><a href="">Caixa</a>
+                    <li><a href="produto" alt="Tela de produto">Produto</a></li>
+                    <li><a href="venda" alt="Tela de Venda">Venda</a></li>
+                    <li><a href="" alt="Opções de Caixa">Caixa</a>
                         <ul class="sub">
-                            <li><a href="../caixa/abertura">Abertura</a></li>
-                            <li><a href="../caixa/fechamento">Fechamento</a></li>
+                            <li><a href="../caixa/abertura" alt="Tela de abertura do caixa">Abertura</a></li>
+                            <li><a href="../caixa/fechamento" alt="Tela de Fechamento do caixa">Fechamento</a></li>
                         </ul>
                     </li>
                 </ul>
             </nav>
         </aside>
-        <main class="o-main">
+        <main class="o-main" alt="Conteúdo Sobre a página de Pessoa Fisíca">
             <div class="container-fluid">
                 <div class="row">
                     <section class=" offset-md-3 o-main-title">Listagem de #{nome}#</section>
@@ -42,25 +45,25 @@
                 <section class="o-main-content offset-md-2">
                     <div class="row">
                         <div class="offset-md-10">
-                            <button type="button" class="o-bottom-action" data-toggle="modal" data-target=".bd-example-modal-lg"></i> Novo Cliente</button>
+                            <button type="button" alt="Botão para Abrir uma janela modal, que chama o Formulário de cadastro de uma nova Pessoa fisíca" class="o-bottom-action" data-toggle="modal" data-target=".bd-example-modal-lg"></i> Novo Cliente</button>
                         </div>
                     </div>
                     <div class="row">
-                        <table class="table">
+                        <table class="table" alt="tabela de listagem por indíce de pessoa fisíca">
                             <thead>
                                 <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Nome</th>
-                                <th scope="col">CPF</th>
-                                <th scope="col">Telefone Principal</th>
-                                <th scope="col">WhatsApp</th>
-                                <th scope="col">E-mail</th>
-                                <th scope="col"><i class="fas fa-eye" title="Visualizar"></i></th>
-                                <th scope="col"><i class="fas fa-edit" title="Editar"></i></th>
-                                <th scope="col" ><i class="fas fa-trash" title="Excluir"></i></th>
+                                <th scope="col" alt="Indíce ID">ID</th>
+                                <th scope="col" alt="Indíce Nome">Nome</th>
+                                <th scope="col" alt="Indíce CPF">CPF</th>
+                                <th scope="col" alt="Indíce Telefone Principal">Telefone Principal</th>
+                                <th scope="col" alt="indíce WhatsApp">WhatsApp</th>
+                                <th scope="col" alt="Indíce E-mail">E-mail</th>
+                                <th scope="col" alt="Indíce Visualizar"><i class="fas fa-eye" title="Visualizar"></i></th>
+                                <th scope="col" alt="Indíce Editar"><i class="fas fa-edit" title="Editar"></i></th>
+                                <th scope="col" alt="Indíce Excluir"><i class="fas fa-trash" title="Excluir"></i></th>
                                 </tr>
                             </thead>
-                            <tbody id="valoresTrFisica">
+                            <tbody id="valoresTrFisica" alt="dados já cadastrado">
                             
                             </tbody>
                         </table>
@@ -69,119 +72,119 @@
             </div>  
         </main>
 
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal fade bd-example-modal-lg" alt="janela Modal de Pessoa fisíca" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Cadastro de Pessoa Fisíca</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <div class="modal-header" alt="Titulo da Modal e Botão de Fechamento">
+                    <h5 class="modal-title" alt="Titulo: Cadastro de Pessoa Fisíca" id="exampleModalCenterTitle">Cadastro de Pessoa Fisíca</h5>
+                    <button type="button" alt="Botão close - Fechamento da Modal" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="formulariofisica">
+                    <form id="formulariofisica" alt="Formulário de Cadastro Pessoa fisíca">
                         <div class="form-row">
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-3" >
                                 <label for="nome">Nome*</label><br>
-                                <input type="text" class="form-control" id="nome" name="nome" placeholder="Escreva o nome do cliente" required>
+                                <input type="text" alt="Campo Nome"  class="form-control" id="nome" name="nome" placeholder="Escreva o nome do cliente" required>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="sobreNome">SobreNome*</label><br>
-                                <input type="text" class="form-control" id="sobreNome" name="sobreNome" placeholder="Escreva razão social referênte ao cliente"> 
+                                <input type="text" alt="Campo Sobrenome" class="form-control" id="sobreNome" name="sobreNome" placeholder="Escreva razão social referênte ao cliente"> 
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="rg">RG*</label><br>
-                                <input type="text" class="form-control" id="rg" name="rg" placeholder="Digite o cnpj Referênte EX:52.233.221-8" required>
+                                <input type="text" alt="Campo RG" class="form-control" id="rg" name="rg" placeholder="Digite o cnpj Referênte EX:52.233.221-8" required>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="cpf">cpf*</label><br>
-                                <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite o cnpj Referênte EX:52.233.221-8" required>
+                                <input type="text" alt="Campo CPF" class="form-control" id="cpf" name="cpf" placeholder="Digite o cnpj Referênte EX:52.233.221-8" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="telefone1">Contato Principal*</label><br>
-                            <input type="text" class="form-control" id="telefone1" name="telefone1" placeholder="Digite o telefone Principal" required>
+                            <input type="text" alt="Campo Contato Princípal" class="form-control" id="telefone1" name="telefone1" placeholder="Digite o telefone Principal" required>
                         </div>
                         <div class="form-group">
                             <label for="telefone2">Contato Secundário*</label><br>
-                            <input type="text" class="form-control" id="telefone2" name="telefone2" placeholder="Digite o Telefone da empresa" required>
+                            <input type="text" alt="Campo Contato Secundário" class="form-control" id="telefone2" name="telefone2" placeholder="Digite o Telefone da empresa" required>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="whatsApp">WhatsApp*</label><br>
-                                <input type="text" class="form-control" id="whatsApp" name="whatsApp" placeholder="Digite o whatsApp da empresa" required>
+                                <input type="text" alt="Campo WhatsApp" class="form-control" id="whatsApp" name="whatsApp" placeholder="Digite o whatsApp da empresa" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="facebook">Facebook*</label><br>
-                                <input type="text" class="form-control" id="facebook" name="facebook" placeholder="Link do facebook da empresa" required>
+                                <input type="text" alt="Campo Facebook" class="form-control" id="facebook" name="facebook" placeholder="Link do facebook da empresa" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="email">E-mail*</label><br>
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Digite o Email do cliente" required>
+                                <input type="text" alt="Campo E-mail" class="form-control" id="email" name="email" placeholder="Digite o Email do cliente" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="estado">Estado</label>
-                                <select  id = "estado"  name = "estado"  class="form-control">
-                                        <option value="AC"> Acre </option>
-                                        <option value="AL"> Alagoas </option>
-                                        <option value="AP"> Amapá </option>
-                                        <option value="AM"> Amazonas </option>
-                                        <option value="BA"> Bahia </option>
-                                        <option value="CE"> Ceará </option>
-                                        <option value="DF"> Distrito Federal </option>
-                                        <option value="ES"> Espírito Santo </option>
-                                        <option value="GO"> Goiás </option>
-                                        <option value="MA"> Maranhão </option>
-                                        <option value="MT"> Mato Grosso </option>
-                                        <option value="MS"> Mato Grosso do Sul </option>
-                                        <option value="MG"> Minas Gerais </option>
-                                        <option value="PA"> Pará </option>
-                                        <option value="PB"> Paraíba </option>
-                                        <option value="PR"> Paraná </option>
-                                        <option value="PE"> Pernambuco </option>
-                                        <option value="PI"> Piauí </option>
-                                        <option value="RJ"> Rio de Janeiro </option>
-                                        <option value="RN"> Rio Grande do Norte </option>
-                                        <option value="RS"> Rio Grande do Sul </option>
-                                        <option value="RO"> Rondônia </option>
-                                        <option value="RR"> Roraima </option>
-                                        <option value="SC"> Santa Catarina </option>
-                                        <option value="SP"> São Paulo </option>
-                                        <option value="SE"> Sergipe </option>
-                                        <option value="TO"> Tocantins </option>
-                                        <option value="ES"> Estrangeiro </option>
+                                <label for="estado" alt="Estado do brasil">Estado</label>
+                                <select  id = "estado" alt="Selecione o estado que o Cliente se encontra" name = "estado"  class="form-control">
+                                        <option alt="Estado AC" value="AC"> Acre </option>
+                                        <option alt="Estado AL" value="AL"> Alagoas </option>
+                                        <option alt="Estado AP" value="AP"> Amapá </option>
+                                        <option alt="Estado AM" value="AM"> Amazonas </option>
+                                        <option alt="Estado BA" value="BA"> Bahia </option>
+                                        <option alt="Estado CE" value="CE"> Ceará </option>
+                                        <option alt="Estado DF" value="DF"> Distrito Federal </option>
+                                        <option alt="Estado ES" value="ES"> Espírito Santo </option>
+                                        <option alt="Estado GO" value="GO"> Goiás </option>
+                                        <option alt="Estado MA" value="MA"> Maranhão </option>
+                                        <option alt="Estado MT" value="MT"> Mato Grosso </option>
+                                        <option alt="Estado MS" value="MS"> Mato Grosso do Sul </option>
+                                        <option alt="Estado MG" value="MG"> Minas Gerais </option>
+                                        <option alt="Estado PA" value="PA"> Pará </option>
+                                        <option alt="Estado PB" value="PB"> Paraíba </option>
+                                        <option alt="Estado PR" value="PR"> Paraná </option>
+                                        <option alt="Estado PE" value="PE"> Pernambuco </option>
+                                        <option alt="Estado PI" value="PI"> Piauí </option>
+                                        <option alt="Estado RJ" value="RJ"> Rio de Janeiro </option>
+                                        <option alt="Estado RN" value="RN"> Rio Grande do Norte </option>
+                                        <option alt="Estado RS" value="RS"> Rio Grande do Sul </option>
+                                        <option alt="Estado RO" value="RO"> Rondônia </option>
+                                        <option alt="Estado RR" value="RR"> Roraima </option>
+                                        <option alt="Estado SC" value="SC"> Santa Catarina </option>
+                                        <option alt="Estado SP" value="SP"> São Paulo </option>
+                                        <option alt="Estado SE" value="SE"> Sergipe </option>
+                                        <option alt="Estado TO" value="TO"> Tocantins </option>
+                                        <option alt="Estado ES" value="ES"> Estrangeiro </option>
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="cidade">Cidade*</label><br>
-                                <input type="cidade" class="form-control" id="cidade" name="cidade" placeholder="Qual a Cidade que se Localiza" required>
+                                <input type="text" alt="Campo Cidade" class="form-control" id="cidade" name="cidade" placeholder="Qual a Cidade que se Localiza" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="bairro">Bairro*</label><br>
-                                <input type="bairro" class="form-control" id="bairro" name="bairro" placeholder="Qual o bairro que se localiza" required>
+                                <input type="text" alt="Campo Bairro" class="form-control" id="bairro" name="bairro" placeholder="Qual o bairro que se localiza" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="rua">Rua*</label><br>
-                                <input type="rua" class="form-control" id="rua" name="rua" placeholder="Qual a rua que se localiza" required>
+                                <input type="text" alt="Campo Rua" class="form-control" id="rua" name="rua" placeholder="Qual a rua que se localiza" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="n">N°</label><br>
-                                <input type="n" class="form-control" id="n" name="n" placeholder="Numero da empresa Exemplo:57" required>
+                                <input type="text" alt="Campo Numero da Residência" class="form-control" id="n" name="n" placeholder="Numero da empresa Exemplo:57" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="complemento">Complemento</label><br>
-                                <input type="complemento" class="form-control" id="complemento" name="complemento" placeholder="Complemento se a empresa é uma casa, apartamento ou outro" required>
+                                <input type="text" alt="Campo Complemento da Residência" class="form-control" id="complemento" name="complemento" placeholder="Complemento se a empresa é uma casa, apartamento ou outro" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <button type="button" class="btn btn-secondary form-control" data-dismiss="modal">Cancelar Cadastro</button>
+                            <button type="button" alt="Botão de cancelar o Formulário" class="btn btn-secondary form-control" data-dismiss="modal">Cancelar Cadastro</button>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary form-control" id="enviar">Cadastrar Cliente</button>
+                            <button type="submit" alt="Botão de Salvar e Cadastrar uma nova Pessoa fisíca" class="btn btn-primary form-control" id="enviar">Cadastrar Cliente</button>
                         </div>
                     </form>
                    
@@ -189,16 +192,14 @@
                 </div>
             </div>
         </div>
-        <footer class="o-footer">
-            &copy; Desenvolvido por <a href="#" target="_blank">EASY Comunication Digital</a>   
+        <footer class="o-footer" alt="rodapé da Pagina Pessoa Fisíca">
+            &copy; Desenvolvido por <a href="#" target="_blank" alt="Link do Site da empresa responsável pelo o desenvolvimento do Software: EASY Comunication Digital">EASY Comunication Digital</a>   
         </footer>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        
+    <script>      
       document.querySelector('#formulariofisica').addEventListener('submit', e=> {
             e.preventDefault();
             let nome = document.getElementById('nome')
@@ -245,60 +246,9 @@
             }//opcional
         })
 })     
-        /*Validação do Formulário*/
+        /*Validação dos campos do Formulário do tipo text*/
 
-        let nome = document.getElementById("nome");
-        nome.addEventListener("keypress", e=>{
-            if(e.keyCode>=65 && e.keyCode<=122){
-                return true;
-            }else{
-                e.preventDefault();
-            }
-        })
-        /*
-        let sobreNome = document.getElementById("sobreNome");
-            sobreNome.addEventListener("keypress", e=>{
-            if(e.keyCode>=65 && e.keyCode<=122){
-                return true;
-            }else{
-                e.preventDefault();
-            }
-        })
-        let cidade = document.getElementById('cidade');
-        cidade.addEventListener("keypress", e=>{
-            if(e.keyCode>=65 && e.keyCode<=122){
-                return true;
-            }else{
-                e.preventDefault();
-            }
-        })
-        let bairro = document.getElementById('bairro');
-        bairro.addEventListener("keypress", e=>{
-            if(e.keyCode>=65 && e.keyCode<=122){
-                return true;
-            }else{
-                e.preventDefault();
-            }
-        })
-        let rua    = document.getElementById('rua');
-        rua.addEventListener("keypress", e=>{
-            if(e.keyCode>=65 && e.keyCode<=122){
-                return true;
-            }else{
-                e.preventDefault();
-            }
-        })
-        let complemento = document.getElementById('complemento');
-        complemento.addEventListener("keypress", e=>{
-            if(e.keyCode>=65 && e.keyCode<=122){
-                return true;
-            }else{
-                e.preventDefault();
-            }
-        })
-*/
-
-        let ids = ['sobreNome', 'cidade', 'bairro', 'rua', 'complemento']
+        let ids = ['nome','sobreNome', 'cidade', 'bairro', 'rua', 'complemento']
 
             function retornaElementos(ids){
                 let retorno = []
