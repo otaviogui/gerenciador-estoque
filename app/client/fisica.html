@@ -197,7 +197,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   <!-- <script src="../app/client/script/myscript.js"></script>-->
     <script>
         
       document.querySelector('#formulariofisica').addEventListener('submit', e=> {
@@ -246,17 +245,79 @@
             }//opcional
         })
 })     
-        
-        /*let btn_form = document.getElementById('enviar');
-        btn_form.addEventListener('click', function(){
-            
+        /*Validação do Formulário*/
 
-            $.ajax({
-                method:"POST",
-                url:"http://localhost/gerenciador/cliente/fisica",
+        let nome = document.getElementById("nome");
+        nome.addEventListener("keypress", e=>{
+            if(e.keyCode>=65 && e.keyCode<=122){
+                return true;
+            }else{
+                e.preventDefault();
+            }
+        })
+        /*
+        let sobreNome = document.getElementById("sobreNome");
+            sobreNome.addEventListener("keypress", e=>{
+            if(e.keyCode>=65 && e.keyCode<=122){
+                return true;
+            }else{
+                e.preventDefault();
+            }
+        })
+        let cidade = document.getElementById('cidade');
+        cidade.addEventListener("keypress", e=>{
+            if(e.keyCode>=65 && e.keyCode<=122){
+                return true;
+            }else{
+                e.preventDefault();
+            }
+        })
+        let bairro = document.getElementById('bairro');
+        bairro.addEventListener("keypress", e=>{
+            if(e.keyCode>=65 && e.keyCode<=122){
+                return true;
+            }else{
+                e.preventDefault();
+            }
+        })
+        let rua    = document.getElementById('rua');
+        rua.addEventListener("keypress", e=>{
+            if(e.keyCode>=65 && e.keyCode<=122){
+                return true;
+            }else{
+                e.preventDefault();
+            }
+        })
+        let complemento = document.getElementById('complemento');
+        complemento.addEventListener("keypress", e=>{
+            if(e.keyCode>=65 && e.keyCode<=122){
+                return true;
+            }else{
+                e.preventDefault();
+            }
+        })
+*/
 
+        let ids = ['sobreNome', 'cidade', 'bairro', 'rua', 'complemento']
+
+            function retornaElementos(ids){
+                let retorno = []
+                ids.forEach(id=>{
+                    retorno.push(document.getElementById(id))
+                })
+                return retorno
+            }
+
+            let elementos = retornaElementos(ids)
+
+            elementos.forEach(elemento=>{
+                elemento.addEventListener('keypress', e=>{
+                    if(e.keyCode >= 65 && e.keyCode <=122)
+                        return true
+                    else
+                        e.preventDefault()
+                })
             })
-                })*/
     </script>
 </body>
 </html>
