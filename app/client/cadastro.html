@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>#{title}#</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <body>
+    <div class="container-fluid">   
+        <div class="row">
+            <div class="col-md-4 offset-md-4"><h1>Realize o seu Cadastro</h1></div>
+            <div class="col-md-4 offset-md-4 login">
+                <form method="post">
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" name="nome" id="nome" class="form-control" placeholder="Digite o seu Nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="sobre_nome">Sobre Nome:</label>
+                        <input type="text" name="sobre_nome" id="sobre_nome" class="form-control" placeholder="Digite o seu Sobre Nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="text" name="email" id="email" class="form-control" placeholder="Digite o seu E-mail">
+                    </div>
+                    <div class="form-group">
+                        <label for="login">Login:</label>
+                        <input type="text" name="login" id="login" class="form-control" placeholder="Digite o seu login">
+                    </div>
+                    <div class="form-group">
+                        <label for="senha">Senha:</label>
+                        <input type="password" name="senha" id="senha" class="form-control" placeholder="Digite a sua senha de acesso">
+                    </div>
+                    <div class="form-group">
+                        <button type="buttom" id="cadastrar" class="btn btn-primary form-control" >Cadastrar</button>
+                    </div>
+                    <div class="form-group">
+                        <button type="reset" class="btn bg-secondary text-white form-control" >Cancelar</button>
+                    </div>
+                </form>
+                <a href="login">Já é usuário? <p>Realize o seu Login Já!</p></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                &copy; Desenvolvido por <a href="#" target="_blank">EASY Comunication Digital</a>
+            </div>   
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+        let btn = document.getElementById('cadastrar');
+        btn.addEventListener('click', e=>{
+            let form = document.getElementsByTagName('form');
+            form.preventDefault();
+            
+            let nomef =  document.getElementById('nome');
+            let sobref = document.getElementById('sobre_nome');
+            let emailf = document.getElementById('email');
+            let loginf = document.getElementById('login');
+            let senhaf = document.getElementById('senha');
+            axios.post('http://localhost/gerenciador-estoque/register',{
+                data:{
+                    nome:nomef.value, 
+                    sobre_nome:sobref.value ,
+                    email:emailf.value ,
+                    login:loginf.value ,
+                    senha: senhaf.value
+                },headers: { 'Content-Type': 'application/json'}
+            }).then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });;
+        });
+       
+    </script>
+    </body>
+</html>

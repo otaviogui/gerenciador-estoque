@@ -5,9 +5,10 @@
     header('Access-Control-Allow-Headers: Authorization, content-type');
     header("Content-type:text/html; charset=utf-8");
     require_once('./vendor/autoload.php');
-
+    session_start();
     use app\server\Router;
     use app\server\Login;
+    use app\server\Cadastro;
     use app\server\Fisica;
     use app\server\Juridica;
     use app\server\Produto;
@@ -16,10 +17,44 @@
     use app\server\Venda;
     Router::dev();
 
+    /* New Register user , Novo registro de Usuario */
+    Router::get('/register', function(){
+        Router::View("./app/client/cadastro.html", ["#{title}#"=>"Cadastro - Seja Bem Vindo"]);
+    });
+    Router::post('/register', function(){
+       $cadastro = new Cadastro(); 
+       var_dump(Router::getJson());
+       if( $cadastro->save( Router::getJson() ) )
+            echo "cadastrado!";
+        else
+            echo "erro";
+
+    });
+    /* login in the system, logando no sistema */
+    Router::get('/login', function(){
+        if(!isset($_SESSION['login']) && !isset($_SESSION['senha'])){
+            Router::View("./app/client/login.html", ["#{title}#"=>"Login - Seja Bem Vindo"
+            ]);
+        }else{
+            header("location: ../");
+        }
+    });
+    Router::post('/login', function(){
+        $login = new Login();
+        $user = $_POST['login'];
+        $senha = $_POST['senha'];
+        $senha = password_hash($senha);
+        $res= $login->logar($user, $senha);
+    });
     Router::get('/', function() {
-        Router::View("./app/client/index.html", ["#{title}#"=>"Inicio - Seja Bem Vindo",
-            "#{test}#"=>"test de h1"
-        ]);
+        
+        if(isset($_SESSION['login']) && isset($_SESSION['senha'])){
+            Router::View("./app/client/index.html", ["#{title}#"=>"Inicio - Seja Bem Vindo",
+                "#{test}#"=>"test de h1"
+            ]);
+        }else{
+           header("location: login");
+        }
         
     });
     

@@ -9,7 +9,7 @@
         private static $host     = "localhost";
 		private static $user     = "root";
 		private static $pass     = "";
-		private static $dbName   = "pedemoca";
+		private static $dbName   = "teste_db";
 		private static $Connect  = null; 
 		
 		private static function Conectar()
