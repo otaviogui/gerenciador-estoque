@@ -13,7 +13,7 @@
                 <form method="post">
                     <div class="form-group">
                         <label for="nome">Nome:</label>
-                        <input type="text" name="nome" id="nome" class="form-control" placeholder="Digite o seu Nome">
+                        <input type="text" name="nome" id="nome" class="form-control" placeholder="Digite o seu Nome"required>
                     </div>
                     <div class="form-group">
                         <label for="sobre_nome">Sobre Nome:</label>
@@ -21,15 +21,15 @@
                     </div>
                     <div class="form-group">
                         <label for="email">E-mail:</label>
-                        <input type="text" name="email" id="email" class="form-control" placeholder="Digite o seu E-mail">
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Digite o seu E-mail" required>
                     </div>
                     <div class="form-group">
                         <label for="login">Login:</label>
-                        <input type="text" name="login" id="login" class="form-control" placeholder="Digite o seu login">
+                        <input type="text" name="login" id="login" class="form-control" placeholder="Digite o seu login"required>
                     </div>
                     <div class="form-group">
                         <label for="senha">Senha:</label>
-                        <input type="password" name="senha" id="senha" class="form-control" placeholder="Digite a sua senha de acesso">
+                        <input type="password" name="senha" id="senha" class="form-control" placeholder="Digite a sua senha de acesso" required>
                     </div>
                     <div class="form-group">
                         <button type="buttom" id="cadastrar" class="btn btn-primary form-control" >Cadastrar</button>
@@ -38,6 +38,12 @@
                         <button type="reset" class="btn bg-secondary text-white form-control" >Cancelar</button>
                     </div>
                 </form>
+                <div class="alert alert-success" role="alert" id="alert-register" hidden>
+                   
+                </div>
+                <div class="alert alert-danger" role="alert" id="alert-register-fail" hidden>
+                    
+                  </div>
                 <a href="login">Já é usuário? <p>Realize o seu Login Já!</p></a>
             </div>
         </div>
@@ -52,26 +58,50 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript">
+        
         let btn = document.getElementById('cadastrar');
         btn.addEventListener('click', e=>{
-            let form = document.getElementsByTagName('form');
-            form.preventDefault();
-            
-            let nomef =  document.getElementById('nome');
-            let sobref = document.getElementById('sobre_nome');
-            let emailf = document.getElementById('email');
-            let loginf = document.getElementById('login');
-            let senhaf = document.getElementById('senha');
+
+           /*  let ids = ['nome', 'sobre_nome', 'email', 'login', 'senha'];
+            for(let i=0; i<ids.length; i++){
+                let select_id =document.getElementById(`${ids[i]}`); 
+                for(let z=0; z<select_id.length; z++){
+                    console.log(select_id[z]);
+                }
+                console.log(ids[i]);
+                console.log(select_id[i]);
+            } */
+            document.querySelector('form').addEventListener('submit', e => e.preventDefault());
+            let nome =  document.getElementById('nome');
+            let sobre = document.getElementById('sobre_nome');
+            let email = document.getElementById('email');
+            let login = document.getElementById('login');
+            let senha = document.getElementById('senha');
             axios.post('http://localhost/gerenciador-estoque/register',{
-                data:{
-                    nome:nomef.value, 
-                    sobre_nome:sobref.value ,
-                    email:emailf.value ,
-                    login:loginf.value ,
-                    senha: senhaf.value
-                },headers: { 'Content-Type': 'application/json'}
+                    nome:nome.value, 
+                    sobre_nome:sobre.value,
+                    email:email.value,
+                    login:login.value,
+                    senha: senha.value
             }).then(function (response) {
-                console.log(response);
+                let alert_register_sucess = document.getElementById("alert-register");
+                alert_register_sucess.removeAttribute("hidden");
+               
+                if(response.data == true){
+                alert_register_sucess.innerHTML=`${response.data}`;
+                }else{
+                    alert_register_sucess.innerHTML=`${response.data}`;
+                    let great = confirm("Gostaria de ser redirecionada para a pagina login");
+                    if(great == true){
+                    window.location.assign("login");
+                    }else{
+                        nome.value='';
+                        sobre.value='';
+                        email.value='';
+                        login.value='';
+                        senha.value='';
+                    }
+                }
             })
             .catch(function (error) {
                 console.log(error);

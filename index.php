@@ -23,11 +23,11 @@
     });
     Router::post('/register', function(){
        $cadastro = new Cadastro(); 
-       var_dump(Router::getJson());
-       if( $cadastro->save( Router::getJson() ) )
-            echo "cadastrado!";
+       $ret = $cadastro->save( Router::getJson() );
+       if($ret)
+            echo "Usuario cadastrado com Sucesso!"; 
         else
-            echo "erro";
+            echo "Erro ao cadastrar Usuário";
 
     });
     /* login in the system, logando no sistema */
@@ -41,13 +41,14 @@
     });
     Router::post('/login', function(){
         $login = new Login();
-        $user = $_POST['login'];
-        $senha = $_POST['senha'];
-        $senha = password_hash($senha);
         $res= $login->logar($user, $senha);
+        if($res){
+            Router::View("./app/client/index.html", ["#{title}#"=>"Inicio - Seja Bem Vindo",
+                "#{test}#"=>"test de h1"
+            ]);
+        }
     });
     Router::get('/', function() {
-        
         if(isset($_SESSION['login']) && isset($_SESSION['senha'])){
             Router::View("./app/client/index.html", ["#{title}#"=>"Inicio - Seja Bem Vindo",
                 "#{test}#"=>"test de h1"
@@ -55,7 +56,6 @@
         }else{
            header("location: login");
         }
-        
     });
     
 
