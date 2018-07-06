@@ -15,6 +15,7 @@
     use app\server\Abertura;
     use app\server\Fechamento;
     use app\server\Venda;
+
     Router::dev();
 
     /* New Register user , Novo registro de Usuario */
@@ -32,29 +33,35 @@
     });
     /* login in the system, logando no sistema */
     Router::get('/login', function(){
-        if(!isset($_SESSION['login']) && !isset($_SESSION['senha'])){
-            Router::View("./app/client/login.html", ["#{title}#"=>"Login - Seja Bem Vindo"
-            ]);
+        if(isset($_SESSION['login'])  && isset($_SESSION['senha'])){
+           return true;
         }else{
-            header("location: ../");
+            Router::View("./app/client/login.html");
         }
     });
     Router::post('/login', function(){
         $login = new Login();
-        $res= $login->logar($user, $senha);
+        $res= $login->logar(Router::getJson());
         if($res){
-            Router::View("./app/client/index.html", ["#{title}#"=>"Inicio - Seja Bem Vindo",
-                "#{test}#"=>"test de h1"
-            ]);
+           header('Location: home');
+        }else{
+            echo"Usuario ou senha, não estão corretos";
+            header("location: login");
         }
     });
-    Router::get('/', function() {
+
+    /* exist page destroy session */
+    Router::get('/sair', function(){
+        session_destroy();
+        header('Location: login');
+    });
+    Router::get('/home', function() {
         if(isset($_SESSION['login']) && isset($_SESSION['senha'])){
             Router::View("./app/client/index.html", ["#{title}#"=>"Inicio - Seja Bem Vindo",
                 "#{test}#"=>"test de h1"
             ]);
         }else{
-           header("location: login");
+            header("location: login");
         }
     });
     

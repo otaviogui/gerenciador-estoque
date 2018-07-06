@@ -43,7 +43,7 @@
                 </div>
                 <div class="alert alert-danger" role="alert" id="alert-register-fail" hidden>
                     
-                  </div>
+                </div>
                 <a href="login">Já é usuário? <p>Realize o seu Login Já!</p></a>
             </div>
         </div>
@@ -62,7 +62,7 @@
         let btn = document.getElementById('cadastrar');
         btn.addEventListener('click', e=>{
 
-           /*  let ids = ['nome', 'sobre_nome', 'email', 'login', 'senha'];
+             let ids = ['nome', 'sobre_nome', 'email', 'login', 'senha'];
             for(let i=0; i<ids.length; i++){
                 let select_id =document.getElementById(`${ids[i]}`); 
                 for(let z=0; z<select_id.length; z++){
@@ -70,7 +70,7 @@
                 }
                 console.log(ids[i]);
                 console.log(select_id[i]);
-            } */
+            } 
             document.querySelector('form').addEventListener('submit', e => e.preventDefault());
             let nome =  document.getElementById('nome');
             let sobre = document.getElementById('sobre_nome');

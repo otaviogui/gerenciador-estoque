@@ -25,6 +25,8 @@
                         <button type="reset" class="btn bg-secondary text-white form-control" >Cancelar</button>
                     </div>
                 </form>
+                <div class="alert alert-danger" role="alert" id="alert-register-fail" hidden>
+                </div>
                 <a href="register">Não é cadastrado? <p>Cadastre-se Já</p></a>
             </div>
         </div>
@@ -47,9 +49,14 @@
            
             axios.post('http://localhost/gerenciador-estoque/login',{
                     login:login.value, 
-                    senha:senha.value,
+                    senha:senha.value
             }).then(function (response) {
-                console.log(response.data);
+                if(response==false){
+                let alert_register_fail = document.getElementById("alert-register-fail");
+                alert_register_fail.removeAttribute("hidden");
+                alert_register_fail.innerHTML=`${response.data}`;}else{
+                    window.location.href="home";
+                }
             })
             .catch(function (error) {
                 console.log(error);

@@ -5,15 +5,24 @@
 
     class Login {
 
-        public static function logar($login, $pass){
-            $pass = $login->pass;
-            $senha = password_hash($pass, PASSWORD_DEFAULT);
-            $result = Conn::getConn()->prepare("SELECT * FROM cadastro WHERE login=? AND senha=?");
+        public static function logar($login){
+            $result = Conn::getConn()->prepare("SELECT * FROM cadastro WHERE login=? ");
             $result->bindValue(1, $login->login);
-            $result->bindValue(2, $senha);
+            
             try{
                 $result->execute();
-                return $result->rowCount();
+                
+                $user = $result->fetch();
+
+                if ($user && password_verify($login->senha, $user['senha']))
+                {
+                   $_SESSION['login'] = $login->login;
+                   $_SESSION['senha'] = $login->senha;
+                } else {
+                    return false;
+                }
+                
+                
             }catch(PDOException $e){
                 echo $e->getMessage();
             }
